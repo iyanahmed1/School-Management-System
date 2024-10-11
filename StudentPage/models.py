@@ -3,6 +3,7 @@ from AdminPage.models import Student,Course,Teacher
 from TeacherPage.models import Grade
 
 class StudentProfile(models.Model):
+    
     student=models.OneToOneField(Student,on_delete=models.CASCADE)
     course=models.ForeignKey(Course,on_delete=models.CASCADE)
     location=models.CharField(max_length=60)
