@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import InquiryForm, AppointmentForm, NotificationForm
+from .forms import StudentRegistrarionForm,InquiryForm, AppointmentForm, NotificationForm
 
 def register_student(request):
     pass

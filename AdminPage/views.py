@@ -12,7 +12,7 @@ def course_list(request):
             return redirect('AdminPage:course_list')
         else:
             form=CourseForm()
-        return render(request,'AdminPage/course_list.html'),{'form':form}
+        return render(request,'course_list.html'),{'form':form}
         
 def course_list(request):
     if request.method=='POST':
@@ -22,7 +22,7 @@ def course_list(request):
             return redirect('AdminPage:course_list')
         else:
             form=CourseForm()
-        return render(request,'AdminPage/course_list.html',{'form':form})
+        return render(request,'course_list.html',{'form':form})
 
 def coursecreate(request):
     if request.method=='POST':
@@ -32,7 +32,7 @@ def coursecreate(request):
             return redirect('AdminPage:coursecreate')
         else:
             form=CourseForm()
-        return render(request,'AdminPage/coursecreate.html',{'form':form})
+        return render(request,'coursecreate.html',{'form':form})
         
 def courseupdate(request):
     if request.method=='POST':
@@ -42,7 +42,7 @@ def courseupdate(request):
             return redirect('AdminPage:courseupdate')
         else:
             form=CourseForm()
-        return render(request,'AdminPage/courseupdate.html',{'form':form})
+        return render(request,'courseupdate.html',{'form':form})
     
 def subjectlist(request):
     if request.method=='POST':
@@ -52,7 +52,7 @@ def subjectlist(request):
             return redirect('AdminPage:subjectlist')
         else:
             form=SubjectForm()
-        return render (request,'AdminPage/subjectlist.html',{'form':form})
+        return render (request,'subjectlist.html',{'form':form})
     
 def subjectcreate(request):
     if request.method=='POST':
@@ -62,7 +62,7 @@ def subjectcreate(request):
             return redirect('AdminPage:subjectcreate')
         else:
             form=SubjectForm()
-        return render (request,'AdminPage/subjectcreate.html',{'form':form})
+        return render (request,'subjectcreate.html',{'form':form})
 
 def teacherdetails(request):
     if request.method=='POST':
@@ -72,7 +72,7 @@ def teacherdetails(request):
             return redirect('AdminPage:teacherdetails')
         else:
             form=SubjectForm()
-        return render (request,'AdminPage/teacherdetails.html',{'form':form})
+        return render (request,'teacherdetails.html',{'form':form})
     
 def studentlist(request):
     if request.method=='POST':
@@ -82,5 +82,5 @@ def studentlist(request):
             return redirect('AdminPage:studentlist')
         else:
             form=SubjectForm()
-        return render (request,'AdminPage/studentlist.html',{'form':form})
+        return render (request,'studentlist.html',{'form':form})
     

@@ -1,6 +1,10 @@
 from django import forms
-from .models import Inquiry,Appointment,Notification
+from .models import Inquiry,Appointment,Notification,StudentRegistration
 
+class StudentRegistrarionForm(forms.ModelForm):
+    class Meta:
+        model=StudentRegistration
+        fields=['first_name','last_name','location','email','date']
 class InquiryForm(forms.ModelForm):
     class Meta:
         model=Inquiry

@@ -1,6 +1,13 @@
 from django.db import models
 from AdminPage.models import Student
 
+class StudentRegistration(models.Model):
+    first_name=models.CharField(max_length=50)
+    last_name=models.CharField(max_length=50)
+    email=models.EmailField()
+    location=models.CharField(max_length=50)
+    date=models.DateTimeField(auto_now_add=True)
+
 class Inquiry(models.Model):
     name=models.CharField(max_length=60)
     email=models.EmailField()

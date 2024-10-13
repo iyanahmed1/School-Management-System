@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Home</title>
+</head>
+<body>
+    <h1>Welcome to the Admin Dashboard</h1>
+    <ul>
+        <li><a href="{% url 'AdminPage:course_list' %}">Manage Courses</a></li>
+        <li><a href="{% url 'AdminPage:subjectlist' %}">Manage Subjects</a></li>
+        <li><a href="{% url 'AdminPage:teacherdetails' %}">Manage Teachers</a></li>
+        <li><a href="{% url 'AdminPage:studentlist' %}">Manage Students</a></li>
+    </ul>
+</body>
+</html>

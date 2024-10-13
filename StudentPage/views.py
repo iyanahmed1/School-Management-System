@@ -9,7 +9,7 @@ def student_profile(request):
             return redirect('FrontOffice:profile_success')
     else:
         form = StudentProfileForm()
-    return render(request, 'FrontOffice/student_profile.html', {'form': form})
+    return render(request, 'student_profile.html', {'form': form})
 
 def student_enrollment(request):
     if request.method == 'POST':
@@ -19,7 +19,7 @@ def student_enrollment(request):
             return redirect('FrontOffice:enrollment_success')
     else:
         form = EnrollmentForm()
-    return render(request, 'FrontOffice/student_enrollment.html', {'form': form})
+    return render(request, 'student_enrollment.html', {'form': form})
 
 def student_grade(request):
     if request.method == 'POST':
@@ -29,7 +29,7 @@ def student_grade(request):
             return redirect('FrontOffice:grade_success')
     else:
         form = StudentGradeForm()
-    return render(request, 'FrontOffice/student_grade.html', {'form': form})
+    return render(request, 'student_grade.html', {'form': form})
 
 def student_attendance(request):
     if request.method == 'POST':
@@ -39,7 +39,7 @@ def student_attendance(request):
             return redirect('FrontOffice:attendance_success')
     else:
         form = AttendForm()
-    return render(request, 'FrontOffice/student_attendance.html', {'form': form})
+    return render(request, 'student_attendance.html', {'form': form})
 
 def student_feedback(request):
     if request.method == 'POST':
@@ -49,4 +49,4 @@ def student_feedback(request):
             return redirect('FrontOffice:feedback_success')
     else:
         form = StudentFeedbackForm()
-    return render(request, 'FrontOffice/student_feedback.html', {'form': form})
+    return render(request, 'student_feedback.html', {'form': form})
