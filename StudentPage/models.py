@@ -4,8 +4,8 @@ from AdminPage.models import Student,Course,Teacher
 from TeacherPage.models import Grade
 
 class StudentProfile(models.Model):
-    student_id=models.CharField(max_length=10)
-    student = models.ForeignKey(User, on_delete=models.CASCADE)
+    student=models.CharField(max_length=10)
+    student_id = models.ForeignKey(User, on_delete=models.CASCADE)
     course=models.ForeignKey(Course,on_delete=models.CASCADE)
     location=models.CharField(max_length=60)
     email=models.EmailField()
