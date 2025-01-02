@@ -52,12 +52,11 @@
 
     <main>
         <ul>
-            <li><a href="{% url 'templates/AdminPage:course_list' %}">Manage Courses</a></li>
+            <li><a href="{% url 'Templates/AdminPage:course_list' %}">Manage Courses</a></li>
             <li><a href="{% url 'AdminPage:subjectlist' %}">Manage Subjects</a></li>
             <li><a href="{% url 'AdminPage:teacherdetails' %}">Manage Teachers</a></li>
             <li><a href="{% url 'AdminPage:studentlist' %}">Manage Students</a></li>
-            <li><a href="{% url 'AdminPage:register_student' %}">Register Students</a></li>
-            <li><a href="{% url 'AdminPage:student_profile' %}">View Student Profiles</a></li>
+            <li><a href="{% url 'StudentPage:student_profile' %}">View Student Profiles</a></li>
             <li><a href="{% url 'AdminPage:manage_grades' %}">Manage Grades</a></li>
             <li><a href="{% url 'AdminPage:manage_attendance' %}">Manage Attendance</a></li>
             <li><a href="{% url 'AdminPage:send_notification' %}">Send Notifications</a></li>

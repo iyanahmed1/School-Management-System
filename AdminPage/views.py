@@ -13,16 +13,17 @@ def course_list(request):
         else:
             form=CourseForm()
         return render(request,'course_list.html'),{'form':form}
-        
-def course_list(request):
+
+def register_student(request):
     if request.method=='POST':
         form=CourseForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('AdminPage:course_list')
+            return redirect('AdminPage:register_student')
         else:
             form=CourseForm()
-        return render(request,'course_list.html',{'form':form})
+        return render(request,'register_student.html.html',{'form':form})
+
 
 def coursecreate(request):
     if request.method=='POST':
@@ -84,3 +85,5 @@ def studentlist(request):
             form=SubjectForm()
         return render (request,'studentlist.html',{'form':form})
     
+def home(request):
+    return render(request, 'home.html') 

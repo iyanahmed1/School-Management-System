@@ -3,10 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School Management System</title>
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #0078d7;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            margin: 0.5rem 0;
+        }
+        ul li a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            color: white;
+            background-color: #28a745;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        ul li a:hover {
+            background-color: #218838;
+        }
+        footer {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #777;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to School Management System </h1>
-</body>
+    <header>
+        <h1>Welcome </h1>
+        <p>Manage all aspects of the system from this central dashboard.</p>
+    </header>
 
+    <main>
+        <ul>
+            <li><a href="{% url 'AdminPage:course_list' %}">Manage Courses</a></li>
+            <li><a href="{% url 'AdminPage:subjectlist' %}">Manage Subjects</a></li>
+            <li><a href="{% url 'AdminPage:teacherdetails' %}">Manage Teachers</a></li>
+            <li><a href="{% url 'AdminPage:studentlist' %}">Manage Students</a></li>
+            <li><a href="{% url 'AdminPage:register_student' %}">Register Students</a></li>
+            <li><a href="{% url 'StudentPage:student_profile' id=student.id %}">View Student Profiles</a></li>
+            <li><a href="{% url 'AdminPage:manage_grades' %}">Manage Grades</a></li>
+            <li><a href="{% url 'AdminPage:manage_attendance' %}">Manage Attendance</a></li>
+            <li><a href="{% url 'AdminPage:send_notification' %}">Send Notifications</a></li>
+            <li><a href="{% url 'AdminPage:schedule_appointment' %}">Schedule Appointments</a></li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Student Management System. All rights reserved.</p>
+    </footer>
+</body>
 </html>

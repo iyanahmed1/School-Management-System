@@ -4,7 +4,7 @@ from . import views
 app_name = 'StudentPage'  
 
 urlpatterns = [
-    path('student_profile/', views.student_profile, name='student_profile'),
+    path('student_profile/<int:id>/', views.student_profile, name='student_profile'),
     path('student_enrollment/', views.student_enrollment, name='student_enrollment'),
     path('student_grade/', views.student_grade, name='student_grade'),
     path('student_attendance/', views.student_attendance, name='student_attendance'),

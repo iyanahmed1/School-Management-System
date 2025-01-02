@@ -12,5 +12,7 @@
         {{ form.as_p }}
         <button type="submit">Submit Profile</button>
     </form>
+    <a href="{% url 'StudentPage:student_profile' id=student.id %}">View Profile</a>
+
 </body>
 </html>

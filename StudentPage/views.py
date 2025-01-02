@@ -1,15 +1,13 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import StudentProfile
 from .forms import StudentProfileForm, EnrollmentForm, StudentGradeForm, AttendForm, StudentFeedbackForm
 
-def student_profile(request):
-    if request.method == 'POST':
-        form = StudentProfileForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('FrontOffice:profile_success')
+def student_profile(request, id = None):
+    if id:
+        student_profile = get_object_or_404(StudentProfile, id=id)
+        return render(request, 'student_profile.html', {'student_profile': student_profile})
     else:
-        form = StudentProfileForm()
-    return render(request, 'student_profile.html', {'form': form})
+        return render(request, 'student_profile.html')
 
 def student_enrollment(request):
     if request.method == 'POST':
@@ -50,3 +48,18 @@ def student_feedback(request):
     else:
         form = StudentFeedbackForm()
     return render(request, 'student_feedback.html', {'form': form})
+
+def profile_success(request):
+    return render(request, 'profile_success.html')  
+
+def enrollment_success(request):
+    return render(request, 'enrollment_success.html') 
+
+def grade_success(request):
+    return render(request, 'grade_success.html')
+
+def attendance_success(request):
+    return render(request, 'attendance_success.html')
+
+def feedback_success(request):
+    return render(request, 'feedback_success.html')
