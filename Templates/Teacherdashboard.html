@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teacher Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, {{ teacher.username }}</h1>
+    <h2>Dashboard</h2>
+    <ul>
+        <li><a href="{% url 'ManageAttendance' %}">Manage Attendance</a></li>
+        <li><a href="{% url 'UploadCourseMaterial' %}">Upload Course Material</a></li>
+        <li><a href="{% url 'ManageGrades' %}">Manage Grades</a></li>
+        <li><a href="{% url 'SubmitFeedback' %}">Submit Feedback</a></li>
+    </ul>
+    <a href="{% url 'Logout' %}">Logout</a>
+</body>
+</html>

@@ -4,8 +4,7 @@ from AdminPage.models import Student,Course,Teacher
 from TeacherPage.models import Grade
 
 class StudentProfile(models.Model):
-    student=models.CharField(max_length=10)
-    student_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    student=models.ForeignKey(Student,on_delete=models.CASCADE)
     course=models.ForeignKey(Course,on_delete=models.CASCADE)
     location=models.CharField(max_length=60)
     email=models.EmailField()
@@ -13,7 +12,7 @@ class StudentProfile(models.Model):
     date_of_birth=models.DateField()
 
     def __str__(self):
-        return f"{self.student_id} {self.student.last_name}"
+        return f"{self.student} {self.course}"
     
 class Enrollment(models.Model):
     student=models.ForeignKey(Student, on_delete=models.CASCADE)

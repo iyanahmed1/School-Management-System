@@ -46,7 +46,7 @@
 </head>
 <body>
     <header>
-        <h1>Welcome </h1>
+        <h1>Welcome to the Admin Dashboard</h1>
         <p>Manage all aspects of the system from this central dashboard.</p>
     </header>
 
@@ -56,12 +56,13 @@
             <li><a href="{% url 'AdminPage:subjectlist' %}">Manage Subjects</a></li>
             <li><a href="{% url 'AdminPage:teacherdetails' %}">Manage Teachers</a></li>
             <li><a href="{% url 'AdminPage:studentlist' %}">Manage Students</a></li>
-            <li><a href="{% url 'AdminPage:register_student' %}">Register Students</a></li>
-            <li><a href="{% url 'StudentPage:student_profile' id=student.id %}">View Student Profiles</a></li>
-            <li><a href="{% url 'AdminPage:manage_grades' %}">Manage Grades</a></li>
-            <li><a href="{% url 'AdminPage:manage_attendance' %}">Manage Attendance</a></li>
-            <li><a href="{% url 'AdminPage:send_notification' %}">Send Notifications</a></li>
-            <li><a href="{% url 'AdminPage:schedule_appointment' %}">Schedule Appointments</a></li>
+            {% for student in students %}
+                <li><a href="{% url 'StudentPage:student_profile' id=student.id %}">View {{ student.name }}'s Profile</a></li>
+            {% endfor %}
+            <li><a href="{% url 'TeacherPage:manage_grades' %}">Manage Grades</a></li>
+            <li><a href="{% url 'TeacherPage:manage_attendance' %}">Manage Attendance</a></li>
+            <li><a href="{% url 'FrontOffice:send_notification' %}">Send Notifications</a></li>
+            <li><a href="{% url 'FrontOffice:schedule_appointment' %}">Schedule Appointments</a></li>
         </ul>
     </main>
 

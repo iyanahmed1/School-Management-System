@@ -4,11 +4,12 @@ from .models import Inquiry,Appointment,Notification,StudentRegistration
 class StudentRegistrarionForm(forms.ModelForm):
     class Meta:
         model=StudentRegistration
-        fields=['first_name','last_name','location','email','date']
+        fields=['first_name','last_name','location','email']
+        exclude = ['date']
 class InquiryForm(forms.ModelForm):
     class Meta:
         model=Inquiry
-        fields=['name','email','message','created']
+        fields=['name','email','message']
 
 class AppointmentForm(forms.ModelForm):
     class Meta:
@@ -18,5 +19,8 @@ class AppointmentForm(forms.ModelForm):
 class NotificationForm(forms.ModelForm):
     class Meta:
         model=Notification
-        fields=['recipient','message','createdate']
+        fields=['recipient','message']
 
+
+form = StudentRegistrarionForm()
+print(form.fields)

@@ -6,7 +6,7 @@ class StudentRegistration(models.Model):
     last_name=models.CharField(max_length=50)
     email=models.EmailField()
     location=models.CharField(max_length=50)
-    date=models.DateTimeField(auto_now_add=True)
+    date=models.DateTimeField(auto_now=True)
 
 class Inquiry(models.Model):
     name=models.CharField(max_length=60)

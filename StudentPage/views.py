@@ -2,12 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import StudentProfile
 from .forms import StudentProfileForm, EnrollmentForm, StudentGradeForm, AttendForm, StudentFeedbackForm
 
-def student_profile(request, id = None):
-    if id:
-        student_profile = get_object_or_404(StudentProfile, id=id)
-        return render(request, 'student_profile.html', {'student_profile': student_profile})
-    else:
-        return render(request, 'student_profile.html')
+def student_profile(request, id):
+    student = get_object_or_404(StudentProfile, id=id)
+    return render(request, 'student_profile.html', {'student': student})
 
 def student_enrollment(request):
     if request.method == 'POST':

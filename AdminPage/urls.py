@@ -5,7 +5,7 @@ app_name = 'AdminPage'
 
 urlpatterns = [
     path('', views.home, name='home'),
-     path('register-student/', views.register_student, name='register_student'),
+    path('register-student/', views.register_student, name='register_student'),
     path('courses/', views.course_list, name='course_list'),  
     path('courses/create/', views.coursecreate, name='coursecreate'),  
     path('courses/update/', views.courseupdate, name='courseupdate'),

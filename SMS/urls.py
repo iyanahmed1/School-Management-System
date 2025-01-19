@@ -24,7 +24,9 @@ urlpatterns = [
     path('', views.home, name='home'), 
     path('admin/', admin.site.urls),
     path('home/',views.home, name='home'),
-    path('student/', include('StudentPage.urls')),
+    path('studentpage/', include('StudentPage.urls')), 
     path('adminpage/',include('AdminPage.urls')),
+    path('teacherpage/', include('TeacherPage.urls')),
+    path('frontoffice/',include('FrontOffice.urls'))
    
 ]

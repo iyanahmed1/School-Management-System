@@ -20,3 +20,7 @@ class FeedbackForm(forms.ModelForm):
     class Meta:
         model=Feedback
         fields=['user','feedbacktext','date']
+
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=100)
+    password = forms.CharField(widget=forms.PasswordInput)
