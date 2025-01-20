@@ -4,7 +4,7 @@ from . import views
 app_name = 'TeacherPage'
 
 urlpatterns = [
-    path('login/', views.login_teacher, name='Login'),
+    path('login/', views.login_teacher, name='LoginTeacher'),
     path('teacher-dashboard/', views.teacher_dashboard, name='Teacherdashboard'),
     path('manage-attendance/', views.manage_attendance, name='manage_attendance'),
     path('upload-course-material/', views.upload_course_material, name='upload_course_material'),

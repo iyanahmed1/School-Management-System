@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 from .models import StudentProfile
 from .forms import StudentProfileForm, EnrollmentForm, StudentGradeForm, AttendForm, StudentFeedbackForm
 
@@ -45,6 +47,27 @@ def student_feedback(request):
     else:
         form = StudentFeedbackForm()
     return render(request, 'student_feedback.html', {'form': form})
+
+def login_student(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None and user.groups.filter(name='Students').exists():
+            login(request, user)
+            return redirect('StudentPage:StudentDashboard') 
+        else:
+            messages.error(request, 'Invalid credentials or you are not a student.')
+    return render(request, 'login_student.html')
+
+def student_dashboard(request):
+    if not request.user.is_authenticated or not request.user.groups.filter(name='Students').exists():
+        return redirect('LoginStudent')  
+    return render(request, 'student_dashboard.html')
+
+def logout_view(request):
+    logout(request)
+    return redirect('home')
 
 def profile_success(request):
     return render(request, 'profile_success.html')  

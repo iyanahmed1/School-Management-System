@@ -45,23 +45,22 @@ def submit_feedback(request):
 
 def login_teacher(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+        username = request.POST['username']
+        password = request.POST['password']
         user = authenticate(request, username=username, password=password)
-        
-        if user is not None and user.is_teacher:  
+        if user is not None and user.groups.filter(name='Teachers').exists():
             login(request, user)
+            return redirect('TeacherPage:TeacherDashboard')  
         else:
-            messages.error(request, "Invalid credentials or you are not authorized.")
-            return redirect('Login') 
-    return render(request, 'login.html')
+            messages.error(request, 'Invalid credentials or you are not a teacher.')
+    return render(request, 'login_teacher.html')
 
 def teacher_dashboard(request):
-    if not request.user.is_authenticated:
-        return redirect('Login')  
+    if not request.user.is_authenticated or not request.user.groups.filter(name='Teachers').exists():
+        return redirect('LoginTeacher')
+    return render(request, 'teacher_dashboard.html')
     
-    return render(request, 'teacher_dashboard.html', {'teacher': request.user})
 
 def logout_view(request):
     logout(request)
-    return redirect('Login')
+    return redirect('home')

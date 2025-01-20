@@ -26,7 +26,7 @@ urlpatterns = [
     path('home/',views.home, name='home'),
     path('studentpage/', include('StudentPage.urls')), 
     path('adminpage/',include('AdminPage.urls')),
-    path('teacherpage/', include('TeacherPage.urls')),
+    path('teacher/', include('TeacherPage.urls')),
     path('frontoffice/',include('FrontOffice.urls'))
    
 ]
