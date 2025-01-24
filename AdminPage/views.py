@@ -93,31 +93,42 @@ def studentlist(request):
 
 def login_admin(request):
     if request.user.is_authenticated:
-        print(f"User {request.user.username} is already logged in")
-        return redirect('AdminPage:AdminDashboard')
+        if request.user.is_superuser or request.user.groups.filter(name='Admins').exists():
+            return redirect('AdminPage:AdminDashboard')
+        else:
+            logout(request)  
+            messages.error(request, 'You are not authorized to access the admin panel.')
+            return redirect('AdminPage:LoginAdmin')
 
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         
-        if user is not None and user.is_superuser:
+        if user is not None and (user.is_superuser or user.groups.filter(name='Admins').exists()):
             login(request, user)
-            print(f"User {user.username} logged in successfully")
             return redirect('AdminPage:AdminDashboard')
         else:
-            messages.error(request, 'Invalid credentials or you are not an admin.')
+            messages.error(request, 'Invalid credentials or insufficient permissions.')
 
     return render(request, 'login_admin.html')
 
+
 def admin_dashboard(request):
-    if not request.user.is_authenticated or not request.user.groups.filter(name='Admins').exists():
-        return redirect('AdminPage:LoginAdmin')  
+    if not request.user.is_authenticated:
+        messages.error(request, 'Please log in to access the admin dashboard.')
+        return redirect('AdminPage:LoginAdmin')
+    
+    if not request.user.groups.filter(name='Admins').exists() and not request.user.is_superuser:
+        messages.error(request, 'You are not authorized to access this page.')
+        return redirect('AdminPage:LoginAdmin')
+
     return render(request, 'AdminDashboard.html')
 
 def logout_view(request):
     logout(request)
-    return redirect('home')
+    messages.success(request, "You have been logged out.")
+    return redirect('AdminPage:LoginAdmin')
 
 def home(request):
     students = StudentProfile.objects.all()
