@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Front Office Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, {{ request.user.username }} (Front Office)</h1>
+    
+    <ul>
+        <li><a href="{% url 'FrontOffice:Loginuser' %}">Login</a></li>
+        <li><a href="{% url 'FrontOffice:frontoffice_dashboard' %}">Staff Dashboard</a></li>
+        <li><a href="{% url 'FrontOffice:register_student' %}">Register Student</a></li>
+        <li><a href="{% url 'FrontOffice:submit_inquiry' %}">Submit Inquiry</a></li>
+        <li><a href="{% url 'FrontOffice:inquiry_success' %}">Inquiry Success</a></li>
+        <li><a href="{% url 'FrontOffice:schedule_appointment' %}">Schedule Appointment</a></li>
+        <li><a href="{% url 'FrontOffice:register_success' %}">Register Success</a></li>
+        <li><a href="{% url 'FrontOffice:appointment_success' %}">Appointment Success</a></li>
+        <li><a href="{% url 'FrontOffice:send_notification' %}">Send Notification</a></li>
+        <li><a href="{% url 'FrontOffice:notification_success' %}">Notification Success</a></li>
+    </ul>
+</body>
+</html>
+

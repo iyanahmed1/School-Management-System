@@ -1,8 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import StudentProfile
 from .forms import StudentProfileForm, EnrollmentForm, StudentGradeForm, AttendForm, StudentFeedbackForm
+
+@login_required
+def student_dashboard(request):
+    if not request.user.groups.filter(name="Students").exists():
+        messages.error(request, "Access Denied!")
+        return redirect("Authentication:login")
+    return render(request, "student_dashboard.html")
+
 
 def student_profile(request, id):
     student = get_object_or_404(StudentProfile, id=id)
@@ -59,11 +68,6 @@ def login_student(request):
         else:
             messages.error(request, 'Invalid credentials or you are not a student.')
     return render(request, 'login_student.html')
-
-def student_dashboard(request):
-    if not request.user.is_authenticated or not request.user.groups.filter(name='Students').exists():
-        return redirect('LoginStudent')  
-    return render(request, 'student_dashboard.html')
 
 def logout_view(request):
     logout(request)

@@ -4,14 +4,14 @@
     <title>Teacher Dashboard</title>
 </head>
 <body>
-    <h1>Welcome, {{ teacher.username }}</h1>
-    <h2>Dashboard</h2>
+    <h1>Welcome, {{ request.user.username }}</h1>
     <ul>
-        <li><a href="{% url 'ManageAttendance' %}">Manage Attendance</a></li>
-        <li><a href="{% url 'UploadCourseMaterial' %}">Upload Course Material</a></li>
-        <li><a href="{% url 'ManageGrades' %}">Manage Grades</a></li>
-        <li><a href="{% url 'SubmitFeedback' %}">Submit Feedback</a></li>
+        <li><a href="{% url 'TeacherPage:manage_attendance' %}">Manage Attendance</a></li>
+        <li><a href="{% url 'TeacherPage:upload_course_material' %}">Upload Course Material</a></li>
+        <li><a href="{% url 'TeacherPage:manage_grades' %}">Manage Grades</a></li>
+        <li><a href="{% url 'TeacherPage:submit_feedback' %}">Submit Feedback</a></li>
+        <li><a href="{% url 'TeacherPage:Logout' %}">Logout</a></li>
     </ul>
-    <a href="{% url 'Logout' %}">Logout</a>
 </body>
 </html>
+

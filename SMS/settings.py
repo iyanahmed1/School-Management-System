@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'TeacherPage',
     'StudentPage',
     'FrontOffice',
+    'Authentication',
 ]
 
 MIDDLEWARE = [

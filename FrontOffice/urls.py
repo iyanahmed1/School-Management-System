@@ -4,7 +4,8 @@ from . import views
 app_name = 'FrontOffice'
 
 urlpatterns = [
-    path('login/', views.login_staff, name='LoginStaff'),
+    path('dashboard/', views.frontoffice_dashboard, name="FrontOfficeDashboard"),
+    path('login/', views.login_user, name='Loginuser'),
     path('staff-dashboard/', views.staff_dashboard, name='StaffDashboard'),
     path('register/', views.register_student, name='register_student'), 
     path('inquiry/', views.submit_inquiry, name='submit_inquiry'),  

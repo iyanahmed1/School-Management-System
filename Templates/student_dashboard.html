@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+        }
+        .dashboard-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .dashboard-links a {
+            padding: 15px 25px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .dashboard-links a:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav">
+        <a href="{% url 'StudentPage:student_dashboard' %}">Dashboard</a>
+        <a href="{% url 'StudentPage:logout' %}">Logout</a>
+    </div>
+
+    <div class="container">
+        <h1>Welcome, {{ student.username }}</h1>
+        <p>Manage your student activities from the dashboard.</p>
+
+        <div class="dashboard-links">
+            <a href="{% url 'StudentPage:student_profile' student.id %}">View Profile</a>
+            <a href="{% url 'StudentPage:student_enrollment' %}">Enroll in Courses</a>
+            <a href="{% url 'StudentPage:student_grade' %}">View Grades</a>
+            <a href="{% url 'StudentPage:student_attendance' %}">Check Attendance</a>
+            <a href="{% url 'StudentPage:student_feedback' %}">Submit Feedback</a>
+            
+            <a href="{% url 'StudentPage:profile_success' %}">Profile Success</a>
+            <a href="{% url 'StudentPage:enrollment_success' %}">Enrollment Success</a>
+            <a href="{% url 'StudentPage:grade_success' %}">Grade Success</a>
+            <a href="{% url 'StudentPage:attendance_success' %}">Attendance Success</a>
+            <a href="{% url 'StudentPage:feedback_success' %}">Feedback Success</a>
+        </div>
+    </div>
+
+</body>
+</html>
+

@@ -4,8 +4,8 @@ from . import views
 app_name = 'StudentPage'  
 
 urlpatterns = [
-    path('login/', views.login_student, name='LoginStudent'),
-    path('student-dashboard/', views.student_dashboard, name='StudentDashboard'),
+   path('login/',views.login_student, name='LoginStudent'),
+    path('dashboard/', views.student_dashboard, name='StudentDashboard'),
     path('student_profile/<int:id>/', views.student_profile, name='student_profile'),
     path('student_enrollment/', views.student_enrollment, name='student_enrollment'),
     path('student_grade/', views.student_grade, name='student_grade'),
@@ -16,4 +16,5 @@ urlpatterns = [
     path('grade_success/', views.grade_success, name='grade_success'),
     path('attendance_success/', views.attendance_success, name='attendance_success'),
     path('feedback_success/', views.feedback_success, name='feedback_success'),
+    path("logout/", views.logout_view, name="logout"),
 ]
